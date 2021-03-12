@@ -99,17 +99,17 @@ class LogClustering(object):
         # print('The representive vectors are:')
         # pprint.pprint(self.representatives.tolist())
 
-    def_distance_metric(self, x1, x2):
-        norm= LA.norm(x1) * LA.norm(x2)
-        distance = 1 - np.dot(x1, x2) / (norm + 1e-8)
-        if distance < 1e-8:
+    def_distance_metric(self, x1, x2);
+    norm= LA.norm(x1) * LA.norm(x2)
+    distance = 1 - np.dot(x1, x2) / (norm + 1e-8)
+    if distance < 1e-8:
             distance = 0
-        return distance
+    return distance
 
-    def_find_min_cluster_dist(self, instance_vec):
-        min_index = -1
-        min_dist = float('inf')
-        for i in range(len(self.representatives)):
+    def_find_min_cluster_dist(self, instance_vec);
+    min_index = -1
+    min_dist = float('inf')
+    for i in range(len(self.representatives)):
             cluster_rep = self.representatives[i]
             dist = self._distance_metric(instance_vec, cluster_rep)
             if dist < 1e-8:
@@ -119,4 +119,4 @@ class LogClustering(object):
             elif dist < min_dist:
                 min_dist = dist
                 min_index = i
-        return min_dist, min_index
+    return min_dist, min_index
